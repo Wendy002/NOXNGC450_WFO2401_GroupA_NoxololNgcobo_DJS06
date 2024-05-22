@@ -112,6 +112,20 @@ console.log(products
   },
   {Highest: undefined, Lowest: undefined}));
 
+  //PART 6
+  const recreatedProducts = products.reduce((result, product) => {
+    const [nameValue, costValue] = Object.values(product);
   
+    result.push({
+      name: nameValue,
+      cost: costValue,
+    });
+  
+    return result;
+  }, []);
+  
+  console.log(recreatedProducts);
+
+
 
 
