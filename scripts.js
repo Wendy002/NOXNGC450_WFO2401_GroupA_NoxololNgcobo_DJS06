@@ -13,3 +13,14 @@ const products = [
   { product: 'coffee', price: 10 },
   { product: 'tea', price: '' },
 ]
+
+
+// using forEach to log each name and each province to the console
+console.log("-----PROVINCES-----");
+provinces.forEach(province => console.log(province));
+console.log("-------NAMES-------");
+names.forEach(name => console.log(name));
+
+// console log name along with matching province
+console.log('---NAME (PROVINCE)---')
+names.forEach((name, index) => console.log(`${name} (${provinces[index]})`));
