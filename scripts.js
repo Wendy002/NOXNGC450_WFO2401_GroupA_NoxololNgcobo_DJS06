@@ -82,10 +82,13 @@ products.map((productName) => {
 //PART 2
 console.log("---------------filter out name length <= 5 --------------------------")
 //  Filter out products with names longer than 5 characters.
+// FILTER() Returns the elements of an array that meet the condition specified in a callback function
 console.log(products.filter((product) => product.product.length <= 5));
 
 //PART 3
-// Filter out products without prices, convert string prices to numbers, and calculate the total price using reduceconso
+// Filter out products without prices, convert string prices to numbers, and calculate the total price using reduce
+// REDUCE() The return value of the callback function is the accumulated result, 
+// and is provided as an argument in the next call to the callback function. 
 console.log("---------------filter out product price empty & return Total price --------------------------");
 console.log("Total price: ",(products.filter((product) => 
   !(product.price === '' || product.price ===" "))).reduce((sum, product) => 
@@ -98,4 +101,6 @@ console.log(products.reduce((concatNames, product) => concatNames + product.prod
 console.log("----String with white spaces in between---");
 console.log(products.reduce((concatNames, product) => concatNames + product.product + " ",''));
 
+//PART 5
+// Identify the highest and lowest-priced items, returning a string formatted as "Highest: X. Lowest: Y."
 
