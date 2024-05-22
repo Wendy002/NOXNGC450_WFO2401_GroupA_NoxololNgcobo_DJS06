@@ -23,6 +23,7 @@ console.log("-------NAMES-------");
 names.forEach(name => console.log(name));
 
 // console log name along with matching province
+///FOREACH() Performs the specified action for each element in an array.
 console.log('---NAME (PROVINCE)---')
 names.forEach((name, index) => console.log(`${name} (${provinces[index]})`));
 
@@ -41,6 +42,7 @@ console.log(nameLengths);
 
 //PART 4 
 //Sorting: Use sort to alphabetically sort the provinces.
+//SORT() This method mutates the array and returns a reference to the same array
 console.log("-----Provinces in alphabetical order-----")
 const sortedProvinces = provinces.sort();
 console.log(sortedProvinces);
