@@ -80,11 +80,6 @@ products.map((productName) => {
 });
 
 //PART 2
+console.log("---------------filter out--------------------------")
 //  Filter out products with names longer than 5 characters.
-// console.log(products.filter((productName) => {
-//   if (productName.product.length < 5){
-//     return productName.product;
-//   }
-  
-// }));
-
+console.log(products.filter((product) => product.product.length <= 5));
