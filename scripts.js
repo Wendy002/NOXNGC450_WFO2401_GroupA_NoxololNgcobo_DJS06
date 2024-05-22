@@ -86,8 +86,16 @@ console.log(products.filter((product) => product.product.length <= 5));
 
 //PART 3
 // Filter out products without prices, convert string prices to numbers, and calculate the total price using reduceconso
-console.log("---------------filter out product price empty & return Total price --------------------------")
-console.log("Total price:")
-console.log((products.filter((product) => 
+console.log("---------------filter out product price empty & return Total price --------------------------");
+console.log("Total price: ",(products.filter((product) => 
   !(product.price === '' || product.price ===" "))).reduce((sum, product) => 
     sum + parseInt(product.price), 0));
+
+//  PART 4
+//  Use reduce to concatenate all product names into a single string.
+console.log("----String with NO white spaces in between---");
+console.log(products.reduce((concatNames, product) => concatNames + product.product,''));
+console.log("----String with white spaces in between---");
+console.log(products.reduce((concatNames, product) => concatNames + product.product + " ",''));
+
+
