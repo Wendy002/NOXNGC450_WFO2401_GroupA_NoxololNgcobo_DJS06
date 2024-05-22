@@ -38,4 +38,8 @@ console.log("-----Lengths for each Name------")
 const nameLengths = names.map(name => `${name} (${name.length})`);
 console.log(nameLengths);
 
-//
+//PART 4 
+//Sorting: Use sort to alphabetically sort the provinces.
+console.log("-----Provinces in alphabetical order-----")
+const sortedProvinces = provinces.sort();
+console.log(sortedProvinces);
