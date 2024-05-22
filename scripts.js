@@ -75,10 +75,16 @@ console.log(nameAndProvinceObject);
 
 //PART 1
 // Iterate over the products array, logging each product name.
-console.log(products.map((productName) => {
-  return productName.product;
-}));
+products.map((productName) => {
+  console.log(productName.product);
+});
 
 //PART 2
 //  Filter out products with names longer than 5 characters.
+// console.log(products.filter((productName) => {
+//   if (productName.product.length < 5){
+//     return productName.product;
+//   }
+  
+// }));
 
