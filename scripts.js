@@ -34,7 +34,8 @@ console.log(upperCaseProvinces);
 
 // PART 3
 // Creating a new array using map that contains the length of each name.
-const nameLengths = names.map(name => name.length);
+console.log("-----Lengths for each Name------")
+const nameLengths = names.map(name => `${name} (${name.length})`);
 console.log(nameLengths);
 
 //
