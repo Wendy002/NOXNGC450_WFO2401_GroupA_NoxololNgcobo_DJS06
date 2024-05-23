@@ -77,54 +77,65 @@ console.log(nameAndProvinceObject);
 
 //PART 1
 // Iterate over the products array, logging each product name.
-products.map((productName) => productName.product);
 
 //PART 2
-//  Filter out products with names longer than 5 characters.
+// Filter out products with names longer than 5 characters.
 // FILTER() Returns the elements of an array that meet the condition specified in a callback function
-console.log(products.filter((product) => product.product.length <= 5));
 
 //PART 3
 // Filter out products without prices, convert string prices to numbers, and calculate the total price using reduce
-// REDUCE() The return value of the callback function is the accumulated result, 
-// and is provided as an argument in the next call to the callback function. 
+// REDUCE() The return value of the callback function is the accumulated result,
+// and is provided as an argument in the next call to the callback function.
 
-console.log("Total price: ",(products.filter((product) => 
-  !(product.price === '' || product.price ===" "))).reduce((sum, product) => 
-    sum + parseInt(product.price), 0));
-
-//  PART 4
-//  Use reduce to concatenate all product names into a single string.
-console.log("----String with NO white spaces in between---");
-console.log(products.reduce((concatNames, product) => concatNames + product.product,''));
-console.log("----String with white spaces in between---");
-console.log(products.reduce((concatNames, product) => concatNames + product.product + " ",''));
+// PART 4
+// Use reduce to concatenate all product names into a single string.
 
 //PART 5
 // Identify the highest and lowest-priced items, returning a string formatted as "Highest: X. Lowest: Y."
-console.log(products
-  .filter((product) =>
-  !(product.price === '' 
-  || product.price === ' ')).map((product) => parseInt(product.price)).reduce((result, price)=>{
-    result.Highest = Math.max(result.Highest || 0, price);
-    result.Lowest = Math.min(result.Lowest || price, price);
-    return result;
-  },
-  {Highest: undefined, Lowest: undefined}));
+// We filter out products with empty or invalid prices.
+// We parse the valid prices as integers.
+// We calculate the maximum and minimum prices.
 
-  //PART 6
-  const recreatedProducts = products.reduce((result, product) => {
-    const [nameValue, costValue] = Object.values(product);
+//Part 6 
+//  Using Object.entries and reduce, recreate the products object with keys 'name' and 'cost', maintaining their original values.
+// We use reduce to iterate through each product in the products array.
+// For each product, we extract the keys ('product' and 'price') and their corresponding values using Object.entries
+// We map over the entries and rename the keys as needed (from 'product' to 'name' and from 'price' to 'cost').
+
+// use one console log for all exercises
+console.log(
+  products.map((productName) => productName.product),            //part1
   
-    result.push({
-      name: nameValue,
-      cost: costValue,
-    });
+  products.filter((product) => product.product.length <= 5),     //part2
   
+  products.filter((product) => !(product.price === '' || product.price === " "))
+  .reduce((sum, product) => sum + parseInt(product.price), 0),                     //part 3
+  
+  products.reduce((concatNames, product) => concatNames + product.product, ''),    //part 4
+ 
+  products
+  .filter((product) => !(product.price === '' || product.price === ' '))
+  .map((product) => parseInt(product.price))
+  .reduce((result, price) => {
+  result.Highest = Math.max(result.Highest || 0, price);
+  result.Lowest = Math.min(result.Lowest || price, price);                       //part 5
+  return result;
+  }, { Highest: undefined, Lowest: undefined }),
+  
+  products.reduce((result, product) => {
+    const updatedProduct = Object.fromEntries(
+      Object.entries(product).map(([key, value]) => {
+        if (key === 'product') return ['name', value];             //part 6 
+        if (key === 'price') return ['cost', value];
+        return [key, value];
+      })
+    );
+    result.push(updatedProduct);
     return result;
-  }, []);
-  
-  console.log(recreatedProducts);
+  }, [])
+  );
+
+
 
 
 
